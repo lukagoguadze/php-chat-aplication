@@ -43,14 +43,14 @@ body html{
     flex-direction: column;
     border: none;
     gap: 2px;
-    height: calc(100% - 60px);
+    height: calc(100% - 110px);
     padding: 0px 5px 5px 5px;
     overflow-y: scroll;
     box-sizing: border-box;
 }
 .users-list::-webkit-scrollbar {
     width: 8px;
-    height: 88.5%;
+    height: 50.5%;
 }
 
 .users-list::-webkit-scrollbar-track {
@@ -444,7 +444,9 @@ i:hover{
     color: white;
     border: none;
     width: 95%;
+    width: 20%;
     font-size: 50px;
+    z-index: 1; 
     padding: 5px;
     border-radius: 7px;
 }

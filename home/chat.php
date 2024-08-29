@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Chat</title>
-    <link rel="stylesheet" href="str.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -27,10 +27,12 @@
             <div class="list-header">
                 <button class="setings" onclick="toggleSidebar()"><h3>chat</h3></button>
                 </div>
+                <input class="search-input" type="text" size="30" onkeyup="showResult(this.value)" placeholder="search">
+                <div id="livesearch"></div>
                 <div class="users-list">
                   <div class="search-container">
-                    <input class="search-input" type="text" size="30" onkeyup="showResult(this.value)" placeholder="search">
-                  <div id="livesearch"></div>
+                    
+                  
                 </div>
             </div>  
      </div>
@@ -86,9 +88,11 @@
 
     </div>
     </div>
-    <script src="../js/bvc.js"></script>
-    <script src="../js/lkkl.js"></script>
-    <script src="../js/chans.js"></script>
-    <script src="../js/jigomen.js"></script>
+    <script src="../js/friend.js"></script>
+    <script src="../js/sss.js"></script>
+    <script src="../js/getUser.js"></script>
+    <script src="../js/liveSearch.js"></script>
+    <script src="../js/sideBar.js"></script>
+    <script src="../js/changePassword.js"></script>
 </body>
 </html>
