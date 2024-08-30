@@ -11,14 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".reciver-info").style.display = 'none';
     document.querySelector(".chat").style.overflowY = "hidden";
     document.querySelector(".line").style.display = 'none';
+    
+
         /////Get Frendebi////////////////
          getFriends();
          pollFriends();
        
+    document.querySelector(".chat").innerHTML = `<h1 class="j">Chat Aplication</h1>`;
           
 
     let lastMessageId = 0; 
-
+///////////FETHING ALL MESSAGES//////////////////////////////////////////////////
     window.fetchMessages=function (receiverId) {
         fetch(`../home/getAllMessages.php?receiverId=${receiverId}&lastMessageId=${lastMessageId}`)
             .then(response => response.json())
@@ -44,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => console.error('Error fetching messages:', error));
     }
-
+//////////////////////DAPOLVA LAST 10 MESSAGES//////////////////////
     window.pollMessages=function (receiverId) {
         clearInterval(pollMessages.interval);
         pollMessages.interval = setInterval(() => {
@@ -70,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                    
         }, 5000);
     };
-
+////////////////////REMOVE MESSAGE///////////////////////////////////////////////////
         window.removeMessage =function(message_id) {
             let receiverId = document.querySelector(".reciver-info").getAttribute("data-receiver-id");
             fetch(`../home/removeMessage.php?messageId=${message_id}&senderId=${senderId}`)
@@ -90,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         };
 
-       
+////////////////////SEND MESSAGE/////////////////////////////////////////
             document.querySelector("#send").addEventListener("click", function (event) {
                 event.preventDefault();
                 let message = document.querySelector("#message").value;
@@ -137,24 +140,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
- // window.openProfileModal = function() {
-        //     let modal = document.querySelector(".modal");
-        //     modal.style.display = 'flex';  
-        //     modal.style.alignItems = 'center';
-        //     modal.style.justifyContent = 'center';
-        // };
-        // window.closeModal = function() {
-        //     document.querySelector(".modal").style.display='none';
-        // };
-        // window.closeChange = function() {
-        //     document.querySelector(".password-modal").style.display='none';
-        //     document.querySelector(".oldPassword").value="";
-        //     document.querySelector(".newPassword").value="";
-        //     document.querySelector(".newRepeatPassword").value="";
-        // };
-        // window.openPasswordModal=function() {
-        //     let modal = document.querySelector(".password-modal");
-        //     modal.style.display = 'flex';  
-        //     modal.style.alignItems = 'center';
-        //     modal.style.justifyContent = 'center';
-        // };
+ window.openProfileModal = function() {
+            let modal = document.querySelector(".modal");
+            modal.style.display = 'flex';  
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+        };
+        window.closeModal = function() {
+            document.querySelector(".modal").style.display='none';
+        };
+        window.closeChange = function() {
+            document.querySelector(".password-modal").style.display='none';
+            document.querySelector(".oldPassword").value="";
+            document.querySelector(".newPassword").value="";
+            document.querySelector(".newRepeatPassword").value="";
+        };
+        window.openPasswordModal=function() {
+            let modal = document.querySelector(".password-modal");
+            modal.style.display = 'flex';  
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+        };

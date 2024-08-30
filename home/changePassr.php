@@ -15,7 +15,6 @@ function changePassword($conn) {
     $stmt->execute();
     $result = $stmt->get_result();
     $data = $result->fetch_assoc();
-    
     if ($data) {
       $hashed_password=password_hash($newPassword,PASSWORD_DEFAULT);        
         if (password_verify($password, $data['user_password'])) {

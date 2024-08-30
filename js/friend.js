@@ -2,9 +2,7 @@ window.getFriends=function (){
     fetch("../home/getFriends.php")
         .then(response => response.json())
         .then(data => {
-            let sidebar=document.querySelector(".sidebar-profile");
             let userList = document.querySelector(".users-list");
-                sidebar.innerHTML = ''; 
                 userList.innerHTML = ''; 
             data.forEach(user => {
                 if(user.user_image != null){
@@ -66,14 +64,9 @@ window.getFriends=function (){
 
                 }
 
-                // document.querySelector(".chat").innerHTML = `<h1 class="j">Chat Aplication</h1>`;
             });
             
-            sidebar.innerHTML=`
-            <li><button onclick=\"openProfileModal()\" class="open-profile"><p>Profile</p><i class="fa-solid fa-user"></i></button></li>
-            <li><button type="button" class="btn btn-secondary change-password" onclick=\"openPasswordModal()\">change password<i class="fa-solid fa-key"></i></button></li>
-            <li><button type="button" class="btn btn-secondary open-profile" onclick="window.location.href='../auth/logOut.php'">Logout <i class="fa-solid fa-right-from-bracket"></i></button></li>
-        `;
+            
             document.querySelectorAll(".select-button").forEach(button => {
                 button.addEventListener("click", function () {
                     document.querySelector(".chat").innerHTML = "";
