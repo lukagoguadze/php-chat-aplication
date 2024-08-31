@@ -29,3 +29,4 @@ echo json_encode($arr);
 mysqli_close($conn);
 }
 getFriends($conn);
+

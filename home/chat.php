@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
      <?php
-    //  include("../home/getFriends.php")
+    //  include("../home/chatStyle.php")
      //  session_start();
     ?> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Chat</title>
-    <link rel="stylesheet" href="dsa.css">
+    <link rel="stylesheet" href="ff.css">
 </head>
 <body>
 
@@ -92,7 +92,7 @@
     <script src="../js/xsa.js"></script>
     <script src="../js/getUser.js"></script>
     <script src="../js/liveSearch.js"></script>
-    <script src="../js/sidmashin.js"></script>
+    <script src="../js/saz.js"></script>
     <script src="../js/changePassword.js"></script>
 </body>
 </html>

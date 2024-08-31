@@ -457,6 +457,7 @@ i:hover{
     border: 1px solid white;
     border-radius: 5px;
     position: sticky;
+    width: 92%;
 }
 .search-input:focus{
     outline-color: green;

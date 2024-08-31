@@ -1,3 +1,4 @@
+///////////SEARCH RESULT///////////////////
 window.showResult=function (str) {
     fetch("../home/gb.php?q="+str)
     .then(response => response.json())
@@ -32,7 +33,7 @@ window.showResult=function (str) {
     })
 };
 
-
+//////////////SELECT USER FROM SEARCH/////////////////////
 function selectUserFromSearch(){
     document.querySelectorAll(".live-select-button").forEach(button => {
         button.addEventListener("click", function () {
