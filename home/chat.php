@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Chat</title>
-    <link rel="stylesheet" href="ff.css">
+    <link rel="stylesheet" href="mm.css">
 </head>
 <body>
 
@@ -36,27 +36,29 @@
                 </div>
             </div>  
      </div>
-        <div class="chat-container">
-            <div class="reciver-info"></div>
-            <div class="line"></div>
-            <div class="chat">
-                <div class="chat-message"></div>
-                    <div class="textBox"></div>
-                </div>
-            <div class="message-input">
-                <form class="message-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
-                    <div class="texareaDiv">
-                        <label class="custom-file-upload">
-                            <input type="file" id="myfile" name="myfile"/>
-                            <i class="fa-solid fa-file-image fa-2xl" style="color: #2988d1;"></i>
-                        </label>
-                   <textarea spellcheck="false" id="message" name="message" placeholder="Type a message..."></textarea>
-                </div>
-                    <div class="btnDiv"><button type="submit" id="send"><i class="fa-regular fa-paper-plane"></i></button></div>
-                    
-                </form>
+     <div class="chat-container">
+    <div class="reciver-info"></div>
+    <div class="line"></div>
+    <div class="chat">
+        <div class="chat-message"></div>
+        <div class="textBox"></div>
+    </div>
+    <div class="message-input">
+        <form class="message-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+            <div class="texareaDiv">
+                <label class="custom-file-upload">
+                    <input type="file" id="myfile" name="myfile" />
+                    <i class="fa-solid fa-file-image fa-2xl" style="color: #2988d1;"></i>
+                </label>
+                <textarea spellcheck="false" id="message" name="message" placeholder="Type a message..."></textarea>
             </div>
-        </div>
+            <div class="btnDiv">
+                <button type="submit" id="send"><i class="fa-regular fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
         <div class="modal">
             <div class="modal-body">
                <img src="../image/lukasimg.jpg" alt="">
@@ -88,11 +90,11 @@
 
     </div>
     </div>
-    <script src="../js/friend.js"></script>
-    <script src="../js/xsa.js"></script>
-    <script src="../js/getUser.js"></script>
+    <script src="../js/ff.js"></script>
+    <script src="../js/aa.js"></script>
+    <script src="../js/gg.js"></script>
     <script src="../js/liveSearch.js"></script>
-    <script src="../js/saz.js"></script>
+    <script src="../js/kk.js"></script>
     <script src="../js/changePassword.js"></script>
 </body>
 </html>

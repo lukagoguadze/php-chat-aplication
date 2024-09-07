@@ -22,10 +22,15 @@ $stm->bind_param("ii",$sender_id,$sender_id);
 $stm->execute();
 $result=$stm->get_result();
 $arr=[];
-while($row=$result->fetch_assoc()){
-   $arr[]=$row;
+if(mysqli_num_rows($result)>0){
+   while($row=$result->fetch_assoc()){
+      $arr[]=$row;
+   }
+   echo json_encode($arr);
+}else{
+   echo json_encode(["result"=>"search and start conversation"]);
 }
-echo json_encode($arr);
+
 mysqli_close($conn);
 }
 getFriends($conn);

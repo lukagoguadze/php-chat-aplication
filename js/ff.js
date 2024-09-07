@@ -4,6 +4,9 @@ window.getFriends=function (){
         .then(data => {
             let userList = document.querySelector(".users-list");
                 userList.innerHTML = ''; 
+                if(data.result){
+                   document.querySelector(".users-list").innerHTML+=`<p class="start-friends">${data.result}</p>`;
+                }else{
             data.forEach(user => {
                 if(user.user_image != null){
                     if(user.status_code==1){
@@ -74,6 +77,7 @@ window.getFriends=function (){
                     fechUser(data,receiverId)
                 });
             });
+        }
         });
 }
 

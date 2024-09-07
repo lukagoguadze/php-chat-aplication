@@ -7,15 +7,17 @@ body html{
 }
 .full{
     width: 100% !important;
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
+    border-radius: 5px;
+
 }
 .main {
     width: 100% !important;
     height: 97.5vh;
     display: flex;
-    border: 1px solid grey;
+    border: none;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.873);
+    /* background-color: rgba(0, 0, 0, 0.873); */
 }
 
 .main-list {
@@ -71,15 +73,17 @@ img {
     border-radius: 50%;
 }
 .chat-container {
-    width: 100%;
-    border: 1px solid gray;
+    width: 100%;display: flex;
+    flex-direction: column;
+    height: 97vh;
     padding: 10px;
+    position: relative;
 }
 .chat {
-    height: 70vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: hidden;
     box-sizing: border-box;
 }
 .reciver-info {
@@ -91,35 +95,44 @@ img {
     font-size: 24px;
 }
 .line {
+    display: none;
     border: 1px solid gray;
     width: 100%;
 }
 .sender {
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    padding: 0px 10px 0px 10px;
     align-items: center;
     gap: 20px;
 }
 .reciver {
     display: flex;
     justify-content: flex-start;
-    padding: 10px;
+    padding: 0px 10px 0px 10px;
 }
-.save-p {
+.s-message {
+    max-width: 60%;
+    background-color: #007bff;
+    word-wrap: break-word;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-weight: bolder;
+    margin: 5px 0;
+}
+.r-message {
     max-width: 60%;
     word-wrap: break-word;
-    background-color: #f1f1f1;
     border-radius: 10px;
     padding: 10px;
     margin: 5px 0;
-}
-.sender .save-p {
-    background-color: #007bff;
-    color: white;
+    background-color: #f1f1f1;
+    color: black;
+    font-weight: bolder;
 }
 .message-input {
-    display: flex;
+    display: none;
     align-items: center;
     margin-top: auto;
     border-top: 1px solid #ccc;
@@ -128,7 +141,6 @@ img {
 .message-input textarea {
     flex: 1;
     resize: none;
-    background-color: #111;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -136,6 +148,8 @@ img {
     margin-right: 10px;
     overflow-y: hidden;
     height: 20px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
     width: 100%;
 }
 .message-input button {
@@ -171,6 +185,8 @@ h2{
 }
 p {
     margin: 2px;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
 }
 
 .password-form{
@@ -580,7 +596,6 @@ input[type="file"] {
   width: 100%;
   border: none;
   display: flex;
-  justify-content: flex-start;
 }
 
 .selected-color:hover {
@@ -589,3 +604,32 @@ input[type="file"] {
 }
 
 .show {display: block;}
+
+.color-div{
+    display: flex;
+    justify-content: flex-end;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.selected-color{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.start-friends{
+    height: 100% !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 23px;
+    color: white;
+    font-weight: 600;
+    font-family: a;
+
+}
