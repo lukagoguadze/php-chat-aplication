@@ -4,21 +4,48 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => data.id);
     }
+    /////////////CHATVIRTUL ESEMESEBS VUCVLI STYLES DINAMIURAD///////////
+    window.chatStyle=function(){
+        fetch(`../home/chatStyle.php?action=getStyleForDom`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.receiver_message_bkc)
+                const chosenColor = data.bk_color;  
+                document.querySelector(".main").style.backgroundColor = chosenColor;
+                document.querySelector("#message").style.backgroundColor = chosenColor;
+                document.querySelectorAll(".s-message").forEach(function(element) {
+                    element.style.backgroundColor = data.sender_message_bkc;
+                });
+                document.querySelectorAll(".r-message").forEach(function(element) {
+                    element.style.backgroundColor = data.receiver_message_bkc;
+                });
+            });
+    };
  getSenderId().then(senderId => {
   if(senderId != null){
-        document.getElementById("livesearch").style.display="none   ";
-        document.querySelector(".message-input").style.display = 'none';
-        document.querySelector(".reciver-info").style.display = 'none';
-        document.querySelector(".chat").style.overflowY = "hidden";
-        document.querySelector(".line").style.display = 'none';
-        
+          document.getElementById("livesearch").style.display="none";
             /////Get Frendebi////////////////
             getFriends();
             pollFriends();
+            chatStyle();
+          document.querySelector(".chat").innerHTML = `<h1 class="j">Chat Aplication</h1>`;
         
-        document.querySelector(".chat").innerHTML = `<h1 class="j">Chat Aplication</h1>`;
-            
-        let lastMessageId = 0; 
+       
+////////////AM FUNQCIAS VIDZAXEB MESIGEBIS CHATVIRTVIS DROS STYLES SHESACVLKELAD////////
+        window.updateMessageColors = function() {
+            fetch(`../home/chatStyle.php?action=getStyleForDom`)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelectorAll(".s-message").forEach(function(element) {
+                        element.style.backgroundColor = data.sender_message_bkc;
+                    });
+                    document.querySelectorAll(".r-message").forEach(function(element) {
+                        element.style.backgroundColor = data.receiver_message_bkc;
+                   });
+        });
+}
+
+           let lastMessageId = 0; 
         ///////////FETHING ALL MESSAGES//////////////////////////////////////////////////
             window.fetchMessages=function (receiverId) {
                 fetch(`../home/getAllMessages.php?receiverId=${receiverId}&lastMessageId=${lastMessageId}`)
@@ -34,13 +61,14 @@ document.addEventListener("DOMContentLoaded", function () {
                                 for (let i = 0; i < data.length; i++) {
                                     if (data[i].receiver_id != receiverId) {
                                         document.querySelector(".chat").innerHTML += `
-                                        <div class="reciver"><div class="save-p"><p>${data[i].message}</p></div></div>`;
+                                        <div class="reciver"><div class="r-message"><p>${data[i].message}</p></div></div>`;
                                     } else {
                                         document.querySelector(".chat").innerHTML += `
-                                        <div class="sender"><button class="remove" onclick=\"removeMessage(${data[i].message_id})\"><i class="fa-solid fa-trash"></i></button><div class="save-p"><p>${data[i].message}</p></div></div>`;
+                                        <div class="sender"><button class="remove" onclick=\"removeMessage(${data[i].message_id})\"><i class="fa-solid fa-trash"></i></button><div class="s-message"><p>${data[i].message}</p></div></div>`;
                                     }
                                 }
                                         document.querySelector(".chat").scrollTop = document.querySelector(".chat").scrollHeight;
+                                        updateMessageColors(); 
                             }
                     })
                     .catch(error => console.error('Error fetching messages:', error));
@@ -60,12 +88,13 @@ document.addEventListener("DOMContentLoaded", function () {
                                     lastMessageId = data[i].message_id;
                                     if (data[i].receiver_id != receiverId) {
                                         document.querySelector(".chat").innerHTML += `
-                                        <div class="reciver"><div class="save-p"><p>${data[i].message}</p></div></div>`;
+                                        <div class="reciver"><div class="r-message"><p>${data[i].message}</p></div></div>`;
                                     } else{
                                         document.querySelector(".chat").innerHTML += `
-                                        <div class="sender"><div class="save-p"><p>${data[i].message}</p></div></div>`;
+                                        <div class="sender"><div class="s-message"><p>${data[i].message}</p></div></div>`;
                                     }
                                     document.querySelector(".chat").scrollTop = document.querySelector(".chat").scrollHeight;
+                                    updateMessageColors(); 
                                 }
                             }
                             });
