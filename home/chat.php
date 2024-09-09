@@ -94,7 +94,7 @@
     <script src="../js/aa.js"></script>
     <script src="../js/gg.js"></script>
     <script src="../js/liveSearch.js"></script>
-    <script src="../js/search.js"></script>
+    <script src="../js/saz.js"></script>
     <script src="../js/changePassword.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(`../home/chatStyle.php?action=getStyleForDom`)
             .then(response => response.json())
             .then(data => {
+                console.log(data.receiver_message_bkc)
                 const chosenColor = data.bk_color;  
                 document.querySelector(".main").style.backgroundColor = chosenColor;
                 document.querySelector("#message").style.backgroundColor = chosenColor;
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
        
 ////////////AM FUNQCIAS VIDZAXEB MESIGEBIS CHATVIRTVIS DROS STYLES SHESACVLELAD////////////
+////////////AM FUNQCIAS VIDZAXEB MESIGEBIS CHATVIRTVIS DROS STYLES SHESACVLKELAD////////
         window.updateMessageColors = function() {
             fetch(`../home/chatStyle.php?action=getStyleForDom`)
                 .then(response => response.json())
