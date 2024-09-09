@@ -16,7 +16,6 @@ function LiveSearch($conn){
         }
     }
     echo json_encode($arr);
-    
   }
 }
 LiveSearch($conn);

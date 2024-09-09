@@ -1,6 +1,6 @@
+//////////USEREBIS DAFECHVA (INFO HEADER)  //////////////////
 function fechUser(data,receiverId){
       let user = data.find(user => user.user_id == receiverId);
-      console.log(user)
       let receiverName = `${user.user_name} ${user.user_lastname}`;
       if(user.user_image!=null){
       if(user.status_code==0){

@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(`../home/chatStyle.php?action=getStyleForDom`)
             .then(response => response.json())
             .then(data => {
-                console.log(data.receiver_message_bkc)
                 const chosenColor = data.bk_color;  
                 document.querySelector(".main").style.backgroundColor = chosenColor;
                 document.querySelector("#message").style.backgroundColor = chosenColor;
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelector(".chat").innerHTML = `<h1 class="j">Chat Aplication</h1>`;
         
        
-////////////AM FUNQCIAS VIDZAXEB MESIGEBIS CHATVIRTVIS DROS STYLES SHESACVLKELAD////////
+////////////AM FUNQCIAS VIDZAXEB MESIGEBIS CHATVIRTVIS DROS STYLES SHESACVLELAD////////////
         window.updateMessageColors = function() {
             fetch(`../home/chatStyle.php?action=getStyleForDom`)
                 .then(response => response.json())
@@ -75,10 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
         //////////////////////DAPOLVA LAST 10 MESSAGES//////////////////////
-            window.pollMessages=function (receiverId) {
+        window.pollMessages=function (receiverId) {
                 clearInterval(pollMessages.interval);
                 pollMessages.interval = setInterval(() => {
-                    console.log("fech")
                     fetch(`../home/getLastMesg.php?receiverId=${receiverId}`)
                         .then(response => response.json())
                         .then(data => {
@@ -100,9 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             });
                         
                 }, 5000);
-            };
+        };
+
         ////////////////////REMOVE MESSAGE///////////////////////////////////////////////////
-            window.removeMessage =function(message_id) {
+        window.removeMessage =function(message_id) {
                     let receiverId = document.querySelector(".reciver-info").getAttribute("data-receiver-id");
                     fetch(`../home/removeMessage.php?messageId=${message_id}&senderId=${senderId}`)
                         .then(response => response.json())
@@ -119,10 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             console.error('Error:', error);
                             alert("An error occurred while trying to remove the message.");
                         });
-            };
+        };
 
         ////////////////////SEND MESSAGE/////////////////////////////////////////
-            document.querySelector("#send").addEventListener("click", function (event) {
+        document.querySelector("#send").addEventListener("click", function (event) {
                         event.preventDefault();
                         let message = document.querySelector("#message").value;
                         document.querySelector("#message").value = '';
@@ -156,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         }else{
                             message.disabled = true;
                         }
-            });
+        });
     }else{
     window.location.href='../auth/login.php';
     }

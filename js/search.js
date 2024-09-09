@@ -1,10 +1,11 @@
-    const sidebar = document.querySelector('.sidebar');
-    let sidebar_items=document.querySelector(".sidebar-profile");
-    document.addEventListener('DOMContentLoaded', function() {
-        sidebar.style.display = 'none'; 
-    });
+const sidebar = document.querySelector('.sidebar');
+let sidebar_items=document.querySelector(".sidebar-profile");
+document.addEventListener('DOMContentLoaded', function() {
+    sidebar.style.display = 'none'; 
+});
 
-    function toggleSidebar() {
+//////////sideBar function///////////////////////
+function toggleSidebar() {
         if (sidebar.style.display === 'none') {
             document.querySelector(".users-list").style.display='none';
             sidebar.style.display = 'block';
@@ -24,11 +25,10 @@
             sidebar.style.display = 'none';
             document.querySelector(".users-list").style.display='block';
         }
-    }
+};
 
-
-    ///////DROPDOWNIS SHEVSEBA BD DAN//////////////////
-    function getColor(){
+///////DROPDOWNIS SHEVSEBA BD DAN//////////////////
+function getColor(){
         let dropdown = document.querySelector(".dropdown-content");
         fetch("../home/chatStyle.php?action=getColorName")
         .then(response => response.json())
@@ -40,9 +40,10 @@
              });
                 
         });
-    }
-    ///////////////CHAT STYLE//////////////////
-    function selectStyle(colorId){
+};
+
+///////////////CHAT STYLE//////////////////
+function selectStyle(colorId){
         fetch(`../home/chatStyle.php?action=getChangeStyle&color=${colorId}`)
         .then(response => response.json())
         .then(data => {
@@ -50,14 +51,15 @@
             chatStyle();
         })
 
-    }
+};
 
-    /////////////DROPDOWNEBI////////////////////////////
-    function myFunction() {
+/////////////DROPDOWNEBI////////////////////////////
+function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
-      }
-    
-      window.onclick = function(event) {
+};
+
+///////DROPDOWNIS GAXSNA DAXURVA//////////////
+window.onclick = function(event) {
         if (!event.target.matches('.dropbtn')) {
           var dropdowns = document.getElementsByClassName("dropdown-content");
           var i;
@@ -68,4 +70,4 @@
             }
           }
         }
-      }
+};

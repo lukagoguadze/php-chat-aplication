@@ -1,3 +1,4 @@
+////////////CHANGE PASSWORD////////////
 function save() {
     const oldPassword = document.querySelector(".oldPassword").value;
     const newPassword = document.querySelector(".newPassword").value;
