@@ -68,6 +68,7 @@
                     }
 
                 });
+                ////////ho
                 const width = window.innerWidth;
                 if(width>630){
                     document.querySelector(".main-list").style.width='35%';
