@@ -3,10 +3,10 @@ include("../dbconnect.php");
 function LiveSearch($conn){
   if (isset($_GET['q'])) {
     $search = $_GET['q'];
-    $sql = "SELECT * FROM users WHERE user_name LIKE ? OR user_lastname LIKE ?";
+    $sql = "SELECT * FROM users WHERE user_email LIKE ?";
     $stmt = $conn->prepare($sql);
-    $searchTerm = "%" . $search . "%";
-    $stmt->bind_param("ss", $searchTerm, $searchTerm);
+    $searchTerm = $search . "%";
+    $stmt->bind_param("s", $searchTerm);
     $stmt->execute();
     $arr=[];
     $result = $stmt->get_result();

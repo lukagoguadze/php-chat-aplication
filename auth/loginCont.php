@@ -1,6 +1,6 @@
 <?php
 
-include("../dbconnect.php");
+include("dbconnect.php");
 session_start();
 function login($conn){
     if($_SERVER["REQUEST_METHOD"]=="POST"){
