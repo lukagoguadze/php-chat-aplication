@@ -71,8 +71,9 @@
                 ////////hos
                 const width = window.innerWidth;
                 if(width>630){
+                    // document.querySelector(".main-list").style.display='block';
                     document.querySelector(".main-list").style.width='35%';
-                    document.querySelector(".chat-container").style.display='flex';
+                    // document.querySelector(".chat-container").style.display='flex';
                     document.querySelector(".main-list").style.display='block';
                     document.querySelectorAll(".select-button").forEach(button => {
                         button.addEventListener("click", function () {
@@ -83,7 +84,7 @@
                         });
                     });
                 }else{
-                    document.querySelector(".chat-container").style.display='none';
+                    // document.querySelector(".chat-container").style.display='none';
                     document.querySelector(".main-list").style.width='100%';
                     document.querySelectorAll(".select-button").forEach(button => {
                         button.addEventListener("click", function () {

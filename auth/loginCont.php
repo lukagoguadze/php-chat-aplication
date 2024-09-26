@@ -21,7 +21,7 @@ function login($conn){
                         $sessionUser=$_SESSION['id'];
                         $query="UPDATE users SET status_code=true WHERE user_id=$sessionUser";
                         mysqli_query($conn,$query);
-                        header("Location: ../home/chat.php");
+                        header("Location: home/chat.php");
                     }else{
                         header("Location: login.php");
                     }

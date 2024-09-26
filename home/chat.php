@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Chat</title>
-    <link rel="stylesheet" href="jhy.css">
+    <link rel="stylesheet" href="luk.css">
 </head>
 <body>
 <div class="full">
@@ -102,8 +102,8 @@
 </div>
 
 <script src="../js/jlk.js"></script><!-- main  -->
-<script src="../js/gd.js"></script><!-- get friend -->
-<script src="../js/cfs.js"></script><!-- user info -->
+<script src="../js/ty.js"></script><!-- get friend -->
+<script src="../js/nhg.js"></script><!-- user info -->
 <script src="../js/xdc.js"></script><!-- search -->
 <script src="../js/qc.js"></script><!-- emoji -->
 <script src="../js/fff.js"></script><!-- sidbar-style -->

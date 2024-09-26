@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="logins.css">
     <title>Login</title>
-    <?php include("loginCont.php"); ?>
+    <?php //include("loginCont.php"); ?>
 </head>
 <body>
     <div class="main">
-        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+        <form action="<?php //htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
             <h2>Login</h2>
             <input type="email" name="login-email" placeholder="Email" required>
             <input type="password" name="login-password" placeholder="Password" required>
@@ -19,4 +19,4 @@
         </form>
     </div>
 </body>
-</html>
+</html> -->
