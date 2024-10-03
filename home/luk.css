@@ -109,7 +109,6 @@ img {
 }
 .s-message {
     max-width: 60%;
-    background-color: #007bff;
     word-wrap: break-word;
     border-radius: 10px;
     padding: 10px;
@@ -123,7 +122,6 @@ img {
     border-radius: 10px;
     padding: 10px;
     margin: 5px 0;
-    background-color: #f1f1f1;
     color: black;
     font-weight: bolder;
 }
@@ -455,7 +453,6 @@ i:hover{
     background-color: #555;
     color: white;
     border: none;
-    width: 95%;
     width: 20%;
     font-size: 20px;
     z-index: 1; 
@@ -689,12 +686,15 @@ input[type="file"] {
     .main-list{
         width: 100%;
     }
-  
+    #livesearch{
+        width: 90%;
+    }
 } 
 @media (min-width: 630px) {
 
     .back-button{
         display: none;
     }
+
 } 
 

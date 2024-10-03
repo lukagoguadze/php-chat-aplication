@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(`../home/chatStyle.php?action=getStyleForDom`)
             .then(response => response.json())
             .then(data => {
-                console.log(data.receiver_message_bkc)
                 const chosenColor = data.bk_color;  
                 document.querySelector(".main").style.backgroundColor = chosenColor;
                 document.querySelector("#message").style.backgroundColor = chosenColor;
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelector(".chat").innerHTML = `<h1 class="j">Chat Aplication</h1>`;
         
        
-////////////AM FUNQCIAS VIDZAXEB MESIGEBIS CHATVIRTVIS DROS STYLES SHESACVLKELAD////////
+////////////AM FUNQCIAS VIDZAXEB MESIGEBIS CHATVIRTVIS DROS STYLES SHESACVLELAD////////
         window.updateMessageColors = function() {
             fetch(`../home/chatStyle.php?action=getStyleForDom`)
                 .then(response => response.json())
@@ -46,37 +45,78 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                     document.querySelectorAll(".r-message").forEach(function(element) {
                         element.style.backgroundColor = data.receiver_message_bkc;
-                        const emojiContainer = document.querySelector(".emoji-container");
                    });
         });
-}
-
+    }
+/////////////////SAWYISI CVLADEBI//////////////////////////////////////////////
            let lastMessageId = 0; 
-        ///////////FETHING ALL MESSAGES//////////////////////////////////////////////////
-            window.fetchMessages=function (receiverId) {
-                fetch(`../home/getAllMessages.php?receiverId=${receiverId}&lastMessageId=${lastMessageId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                            if(data=='empty'){
-                                lastMessageId = 0;
-                                document.querySelector(".chat").innerHTML ="";
-                            }else if (data.length > 0) {
-                                lastMessageId = data[data.length - 1].message_id;
-                                for (let i = 0; i < data.length; i++) {
-                                    if (data[i].receiver_id != receiverId) {
-                                        document.querySelector(".chat").innerHTML += `
-                                        <div class="reciver"><div class="r-message"><p>${data[i].message}</p></div></div>`;
-                                    } else {
-                                        document.querySelector(".chat").innerHTML += `
-                                        <div class="sender"><button class="remove" onclick=\"removeMessage(${data[i].message_id})\"><i class="fa-solid fa-trash"></i></button><div class="s-message"><p>${data[i].message}</p></div></div>`;
-                                    }
+           window.offset=0;
+           let limit=12;
+           let chatContainer=document.querySelector(".chat");
+           ////////////SCROLLING FUNCTION BABYYYYYYYYYYY//////////////////////
+           chatContainer.addEventListener('scroll', () => {
+            if (chatContainer.scrollTop === 0) { 
+                let receiverId = document.querySelector(".reciver-info").getAttribute("data-receiver-id");
+                
+                const currentScrollHeight = chatContainer.scrollHeight;
+                fetchMessagesWithScroll(receiverId, currentScrollHeight);
+                offset += limit;
+            }
+        });
+
+        ////////////////FETHCING MESSSAGES WHITH SCROLL///////////////////
+        window.fetchMessagesWithScroll=function (receiverId, currentScrollHeight) {
+            fetch(`../home/getAllMessages.php?receiverId=${receiverId}&offset=${offset}&func=withScroll`)
+                .then(response => response.json())
+                .then(data => {
+                        if(data=='empty'){
+                        }else if (data.length > 0) {
+                            for (let i = 0; i <= data.length-1; i++) {
+                                let messageHtml = '';
+    
+                                if (data[i].receiver_id!= receiverId) {
+                                    messageHtml= `
+                                    <div class="reciver"><div class="r-message"><p>${data[i].message}</p></div></div>`;
+                                } else {
+                                    messageHtml= `
+                                    <div class="sender"><button class="remove" onclick=\"removeMessage(${data[i].message_id})\"><i class="fa-solid fa-trash"></i></button><div class="s-message"><p>${data[i].message}</p></div></div>`;
                                 }
-                                        document.querySelector(".chat").scrollTop = document.querySelector(".chat").scrollHeight;
-                                        updateMessageColors(); 
+                                document.querySelector(".chat").insertAdjacentHTML('afterbegin', messageHtml);
                             }
-                    })
-                    .catch(error => console.error('Error fetching messages:', error));
-            };
+                                    updateMessageColors(); 
+                        }
+                        chatContainer.scrollTop = chatContainer.scrollHeight - currentScrollHeight;
+                        // chatContainer.scrollTop = chatContainer.scrollHeight - currentScrollHeight;
+                })
+                .catch(error => console.error('Error fetching messages:', error));
+        };
+        /////////FETHING ALL MESSAGES//////////////////////////////////////////////////
+        window.fetchMessages=function (receiverId) {
+            fetch(`../home/getAllMessages.php?receiverId=${receiverId}&func=getAll`)
+                .then(response => response.json())
+                .then(data => {
+                        if(data=='empty'){
+                            lastMessageId = 0;
+                            document.querySelector(".chat").innerHTML ="";
+                        }else if (data.length > 0) {
+                            lastMessageId = data[0].message_id;
+                            for (let i = data.length-1; i >=0 ; i--) {
+                                if (data[i].receiver_id != receiverId) {
+                                    document.querySelector(".chat").innerHTML += `
+                                    <div class="reciver"><div class="r-message"><p>${data[i].message}</p></div></div>`;
+                                } else {
+                                    document.querySelector(".chat").innerHTML += `
+                                    <div class="sender"><button class="remove" onclick=\"removeMessage(${data[i].message_id})\"><i class="fa-solid fa-trash"></i></button><div class="s-message"><p>${data[i].message}</p></div></div>`;
+                                }
+                            }
+                                 document.querySelector(".chat").scrollTop = document.querySelector(".chat").scrollHeight;
+                                 updateMessageColors(); 
+                        }
+                    offset=12;
+
+                })
+                .catch(error => console.error('Error fetching messages:', error));
+        };
 
 
 
@@ -97,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         document.querySelector(".chat").innerHTML += `
                                         <div class="sender"><button class="remove" onclick=\"removeMessage(${data[i].message_id})\"><i class="fa-solid fa-trash"></i></button><div class="s-message"><p>${data[i].message}</p></div></div>`;
                                     }
-                                    document.querySelector(".chat").scrollTop = document.querySelector(".chat").scrollHeight;
+                                         document.querySelector(".chat").scrollTop = document.querySelector(".chat").scrollHeight;
                                     updateMessageColors(); 
                                 }
                             }
@@ -133,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         document.querySelector("#message").value = '';
                         let receiverId = document.querySelector(".reciver-info").getAttribute("data-receiver-id");
                         if(message!=""){
-            function sendMess(){
+                     
                             fetch("../home/sendMessags.php", {
                                 method: "POST",
                                 headers: {
@@ -156,11 +196,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                     }
                                 })
                                 .catch(error => console.error('Error sending message:', error));
-                            }
-                            setTimeout(sendMess,1000);
+                            
+                            
                         }else{
                             message.disabled = true;
                         }
+                       
         });
     }else{
          window.location.href='../auth/login.php';

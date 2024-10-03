@@ -101,10 +101,10 @@
     </div>
 </div>
 
-<script src="../js/jlk.js"></script><!-- main  -->
+<script src="../js/df.js"></script><!-- main  -->
 <script src="../js/ty.js"></script><!-- get friend -->
-<script src="../js/nhg.js"></script><!-- user info -->
-<script src="../js/xdc.js"></script><!-- search -->
+<script src="../js/qds.js"></script><!-- user info -->
+<script src="../js/vgf.js"></script><!-- search -->
 <script src="../js/qc.js"></script><!-- emoji -->
 <script src="../js/fff.js"></script><!-- sidbar-style -->
 <script src="../js/changePassword.js"></script><!-- chang password -->

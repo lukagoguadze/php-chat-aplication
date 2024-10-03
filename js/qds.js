@@ -43,20 +43,21 @@ function fechUser(data,receiverId){
           `;
       }
   }
-  document.querySelector(".reciver-info").setAttribute('data-receiver-id', receiverId);
+  window.document.querySelector(".reciver-info").setAttribute('data-receiver-id', receiverId);
                   lastMessageId = 0; 
                   document.querySelector(".chat-container").style.display='flex';
                   document.querySelector(".reciver-info").style.display = 'block';
                   document.querySelector(".chat").style.overflowY = "scroll";
                   document.querySelector(".line").style.display = 'block';
                   document.querySelector(".message-input").style.display = 'flex';
-                  console.log("aqaris!!!!!!!!!!!!!!11");
+                //   window.offset=0;
                   fetchMessages(receiverId);
                   pollMessages(receiverId);
 }
-
+/////////// FOR PHONE //////////////////////////
 function backFriend(){
     document.querySelector(".chat-container").style.display='none';
+    clearInterval(pollMessages.interval);
     document.querySelector(".main-list").style.display='block';
     document.querySelector(".main-list").style.width='100%';
 }

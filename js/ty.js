@@ -79,7 +79,6 @@
                         button.addEventListener("click", function () {
                             document.querySelector(".chat").innerHTML = "";
                             let receiverId = this.value;
-                            console.log("first!")
                             fechUser(data,receiverId)
                         });
                     });
@@ -91,7 +90,6 @@
                             document.querySelector(".main-list").style.display='none';
                             document.querySelector(".chat").innerHTML = "";
                             let receiverId = this.value;
-                            console.log("second!")
                             fechUser(data,receiverId);
                         });
                     });

@@ -11,7 +11,7 @@ window.showResult=function (str) {
             return;
         }
         else{
-            if(data.length!=0){
+            if(data.length!=0 && str.trim() !== ""){
                 document.getElementById("livesearch").style.display="block";
                 for (let i = 0; i < data.length; i++) {
                     if(data[i].user_image!=null){
@@ -42,6 +42,12 @@ function selectUserFromSearch(){
             fetch("../home/userList.php")
             .then(response => response.json())
             .then(data => {
+                const searchWidth = window.innerWidth;
+                if(searchWidth>650){
+                    document.querySelector(".main-list").style.display='block';
+                }else{
+                    document.querySelector(".main-list").style.display='none';
+                }
                 fechUser(data,receiverId)
                 document.querySelector(".search-input").value="";
                 document.getElementById("livesearch").style.display="none";

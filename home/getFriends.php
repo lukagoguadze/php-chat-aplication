@@ -3,7 +3,6 @@ session_start();
 include("../dbconnect.php");
 function getFriends($conn){
 $sender_id=$_SESSION['id'];
-///////////
 $sql="SELECT 
    MAX(t1.id) AS id,
    MAX(t1.message_id) AS message_id, 
